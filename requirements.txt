@@ -1,0 +1,18 @@
+# 投资研究工具依赖
+
+# 核心数据源
+yfinance>=0.2.0      # 美股行情、期权链、财报日历
+akshare>=1.12.0       # A股行情、板块、经济日历
+pandas>=2.0.0         # 数据处理
+numpy>=1.24.0         # 数值计算
+
+# SEC 财报
+edgar-tools>=2.0.0    # SEC EDGAR 财报解析（10-K/10-Q/8-K）
+
+# 可选：社交媒体
+# tweepy>=4.14.0      # X/Twitter API （需要付费API Key）
+# praw>=7.7.0          # Reddit API
+
+# 可选：机器学习/情绪分析
+# textblob>=0.17.0     # 英文情绪分析
+# snownlp>=0.12.3      # 中文情绪分析

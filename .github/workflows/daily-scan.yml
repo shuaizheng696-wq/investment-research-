@@ -1,0 +1,106 @@
+# GitHub Actions — 每日定时数据采集
+
+name: Daily Market Data Collection
+
+on:
+  schedule:
+    # 周一至周五 UTC 00:00 (北京时间早上8点)
+    - cron: '0 0 * * 1-5'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  options-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run options scan
+        run: python scripts/options_scan.py
+
+      - name: Commit options data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/options/
+          git diff --staged --quiet || git commit -m "[auto] 期权数据更新 $(date +%Y-%m-%d)"
+          git push
+
+  market-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run market data collection
+        run: python scripts/market_data.py
+
+      - name: Commit market data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/daily-market/
+          git diff --staged --quiet || git commit -m "[auto] 市场数据更新 $(date +%Y-%m-%d)"
+          git push
+
+  earnings-calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run earnings scan
+        run: python scripts/earnings_analysis.py
+
+      - name: Commit earnings data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/earnings/
+          git diff --staged --quiet || git commit -m "[auto] 财报日历更新 $(date +%Y-%m-%d)"
+          git push
+
+  sentiment-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run sentiment tracker
+        run: python scripts/sentiment_tracker.py
+
+      - name: Commit sentiment data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/sentiment/
+          git diff --staged --quiet || git commit -m "[auto] 情绪数据更新 $(date +%Y-%m-%d)"
+          git push
