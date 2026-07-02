@@ -7,7 +7,7 @@ pandas>=2.0.0         # 数据处理
 numpy>=1.24.0         # 数值计算
 
 # SEC 财报
-edgar-tools>=2.0.0    # SEC EDGAR 财报解析（10-K/10-Q/8-K）
+edgartools>=2.0.0     # SEC EDGAR 财报解析（10-K/10-Q/8-K）
 
 # 可选：社交媒体
 # tweepy>=4.14.0      # X/Twitter API （需要付费API Key）
