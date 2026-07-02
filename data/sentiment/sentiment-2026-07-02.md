@@ -5,7 +5,7 @@
 - **AAPL**: ❌ 'Bullish'
 - **NVDA**: ❌ 'Bullish'
 - **MSFT**: ❌ 'Bullish'
-- **TSLA**: ❌ 'Bearish'
+- **TSLA**: ❌ 'Bullish'
 - **META**: ❌ 'Bullish'
 
 ## Reddit
