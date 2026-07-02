@@ -15,6 +15,7 @@ import json
 from datetime import datetime, timedelta
 from pathlib import Path
 
+import math
 import pandas as pd
 
 try:
@@ -149,11 +150,11 @@ def collect_cn_market() -> dict:
                 result["indices"][symbol] = {
                     "name": name,
                     "date": str(latest.get("date", "")),
-                    "price": float(latest.get("close", 0)),
-                    "open": float(latest.get("open", 0)),
-                    "high": float(latest.get("high", 0)),
-                    "low": float(latest.get("low", 0)),
-                    "volume": int(latest.get("volume", 0)),
+                    "price": float(latest.get("close", 0)) if not (isinstance(latest.get("close"), float) and math.isnan(latest.get("close"))) else 0,
+                    "open": float(latest.get("open", 0)) if not (isinstance(latest.get("open"), float) and math.isnan(latest.get("open"))) else 0,
+                    "high": float(latest.get("high", 0)) if not (isinstance(latest.get("high"), float) and math.isnan(latest.get("high"))) else 0,
+                    "low": float(latest.get("low", 0)) if not (isinstance(latest.get("low"), float) and math.isnan(latest.get("low"))) else 0,
+                    "volume": int(latest.get("volume", 0)) if not (isinstance(latest.get("volume", 0), float) and math.isnan(latest.get("volume", 0))) else 0,
                     "change": change,
                     "change_pct": pct_change,
                 }

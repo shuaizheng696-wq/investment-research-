@@ -15,7 +15,7 @@ from pathlib import Path
 
 import yfinance as yf
 import pandas as pd
-import numpy as np
+import math
 
 # ===== 配置 =====
 # 要扫描的股票列表
@@ -126,6 +126,26 @@ def scan_options_chain(ticker: str) -> dict:
         return {"ticker": ticker, "error": str(e)}
 
 
+def safe_int(val, default=0):
+    """安全转换数值为int，处理NaN"""
+    try:
+        if val is None or (isinstance(val, float) and math.isnan(val)):
+            return default
+        return int(val)
+    except (ValueError, TypeError):
+        return default
+
+
+def safe_float(val, default=None):
+    """安全转换数值为float，处理NaN"""
+    try:
+        if val is None or (isinstance(val, float) and math.isnan(val)):
+            return default
+        return float(val)
+    except (ValueError, TypeError):
+        return default
+
+
 def analyze_and_summarize(results: dict) -> str:
     """生成可读摘要"""
     lines = []
@@ -137,7 +157,10 @@ def analyze_and_summarize(results: dict) -> str:
     if error:
         return f"### {ticker} — 数据获取失败: {error}\n"
 
-    lines.append(f"### {ticker} — 现价 ${price:.2f}" if price else f"### {ticker}")
+    if price is not None and not (isinstance(price, float) and math.isnan(price)):
+        lines.append(f"### {ticker} — 现价 ${price:.2f}")
+    else:
+        lines.append(f"### {ticker}")
 
     for expiry, exp_data in results.get("expiries", {}).items():
         if "error" in exp_data:
@@ -150,11 +173,13 @@ def analyze_and_summarize(results: dict) -> str:
 
         lines.append(f"  **{expiry}** ({dte}天到期) | P/C Ratio: {pc}")
         if max_vol.get("strike"):
+            strike = safe_float(max_vol.get("strike"))
+            vol = safe_int(max_vol.get("volume"))
+            oi = safe_int(max_vol.get("openInterest"))
+            iv = max_vol.get("IV", "N/A")
             lines.append(
-                f"    最大成交量: {max_vol['type']} @ ${max_vol['strike']:.1f} "
-                f"(成交量: {int(max_vol.get('volume', 0))}, "
-                f"持仓: {int(max_vol.get('openInterest', 0))}, "
-                f"IV: {max_vol.get('IV', 'N/A')})"
+                f"    最大成交量: {max_vol['type']} @ ${strike:.1f} "
+                f"(成交量: {vol}, 持仓: {oi}, IV: {iv})"
             )
 
     return "\n".join(lines) + "\n"
