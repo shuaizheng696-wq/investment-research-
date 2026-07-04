@@ -9,10 +9,19 @@ numpy>=1.24.0         # 数值计算
 # SEC 财报
 edgartools>=2.0.0     # SEC EDGAR 财报解析（10-K/10-Q/8-K）
 
-# 可选：社交媒体
-# tweepy>=4.14.0      # X/Twitter API （需要付费API Key）
-# praw>=7.7.0          # Reddit API
+# YouTube 视频分析
+youtube-transcript-api>=0.6.0  # 获取 YouTube 视频字幕（无需 API Key）
+
+# Twitter/X 抓取
+twscrape>=0.8.0       # Twitter/X 爬虫（无需付费 API）
+
+# 经济日历
+investpy>=0.4.0       # Investing.com 经济日历和数据
 
 # 可选：机器学习/情绪分析
-# textblob>=0.17.0     # 英文情绪分析
-# snownlp>=0.12.3      # 中文情绪分析
+textblob>=0.17.0      # 英文情绪分析
+snownlp>=0.12.3       # 中文情绪分析
+
+# 可选：社交媒体 API（需要付费 Key）
+# tweepy>=4.14.0      # X/Twitter 官方 API
+# praw>=7.7.0          # Reddit API
