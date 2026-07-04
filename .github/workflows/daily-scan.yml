@@ -1,15 +1,12 @@
-# GitHub Actions — 每日定时数据采集
-
 name: Daily Market Data Collection
 
 on:
   schedule:
-    # 周一至周五 UTC 00:00 (北京时间早上8点)
     - cron: '0 0 * * 1-5'
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
 
 permissions:
-  contents: write  # 允许推送到仓库
+  contents: write
 
 jobs:
   full-scan:
@@ -36,8 +33,15 @@ jobs:
       - name: Run earnings analysis
         run: python scripts/earnings_analysis.py
 
-      - name: Run sentiment tracker
-        run: python scripts/sentiment_tracker.py
+      - name: Run YouTube analysis
+        run: python scripts/youtube_analysis.py
+
+      - name: Run Twitter scraper
+        run: python scripts/twitter_scraper.py
+        continue-on-error: true
+
+      - name: Run economic calendar
+        run: python scripts/calendar_scraper.py
 
       - name: Commit all collected data
         run: |
