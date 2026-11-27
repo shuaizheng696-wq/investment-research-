@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-27",
+  "us": {
+    "fetched_at": "2026-11-27T06:56:53.985287",
+    "indices": {
+      "^GSPC": {
+        "name": "标普500",
+        "price": 7182.78,
+        "change": -18.310059,
+        "change_pct": -0.25426787,
+        "5d_change_pct": 0.1
+      },
+      "^IXIC": {
+        "name": "纳斯达克",
+        "price": 23585.803,
+        "change": -147.73242,
+        "change_pct": -0.62246275,
+        "5d_change_pct": -1.23
+      },
+      "^DJI": {
+        "name": "道琼斯",
+        "price": 50182.95,
+        "change": 164.25,
+        "change_pct": 0.3283772,
+        "5d_change_pct": 2.21
+      }
+    },
+    "tickers": {
+      "AAPL": {
+        "name": "Apple Inc.",
+        "price": 355.58,
+        "change_pct": 0.426463,
+        "market_cap": 5167353167872,
+        "pe": 39.59688,
+        "forward_pe": 33.631805,
+        "52w_high": 360.83,
+        "52w_low": 243.42,
+        "volume": 53060252,
+        "avg_volume": 43904198,
+        "volume_ratio": 1.21
+      },
+      "NVDA": {
+        "name": "NVIDIA Corporation",
+        "price": 149.3,
+        "change_pct": -3.91299,
+        "market_cap": 3605147156480,
+        "pe": 16.03652,
+        "forward_pe": 8.991117,
+        "52w_high": 243.37,
+        "52w_low": 124.5,
+        "volume": 359527027,
+        "avg_volume": 187728343,
+        "volume_ratio": 1.92
+      },
+      "MSFT": {
+        "name": "Microsoft Corporation",
+        "price": 489.93,
+        "change_pct": -1.24967,
+        "market_cap": 3638315450368,
+        "pe": 25.57046,
+        "forward_pe": 20.244339,
+        "52w_high": 559.15,
+        "52w_low": 349.2,
+        "volume": 26095270,
+        "avg_volume": 24207951,
+        "volume_ratio": 1.08
+      },
+      "TSLA": {
+        "name": "Tesla, Inc.",
+        "price": 380.14,
+        "change_pct": -1.1802,
+        "market_cap": 1502601543680,
+        "pe": 417.73627,
+        "forward_pe": 176.05432,
+        "52w_high": 498.83,
+        "52w_low": 297.38,
+        "volume": 33883019,
+        "avg_volume": 37405582,
+        "volume_ratio": 0.91
+      },
+      "META": {
+        "name": "Meta Platforms, Inc.",
+        "price": 609.89,
+        "change_pct": 3.40273,
+        "market_cap": 1559025942528,
+        "pe": 20.121742,
+        "forward_pe": 17.151987,
+        "52w_high": 779.82,
+        "52w_low": 520.26,
+        "volume": 18558019,
+        "avg_volume": 20973225,
+        "volume_ratio": 0.88
+      },
+      "GOOGL": {
+        "name": "Alphabet Inc.",
+        "price": 273.1,
+        "change_pct": -2.13223,
+        "market_cap": 3357491331072,
+        "pe": 14.261097,
+        "forward_pe": 17.85273,
+        "52w_high": 408.61,
+        "52w_low": 262.73,
+        "volume": 40804718,
+        "avg_volume": 32195529,
+        "volume_ratio": 1.27
+      },
+      "AMZN": {
+        "name": "Amazon.com, Inc.",
+        "price": 244.43,
+        "change_pct": -3.11546,
+        "market_cap": 2643055345664,
+        "pe": 19.759903,
+        "forward_pe": 22.371244,
+        "52w_high": 287.2,
+        "52w_low": 196.0,
+        "volume": 61713896,
+        "avg_volume": 41694870,
+        "volume_ratio": 1.48
+      },
+      "AMD": {
+        "name": "Advanced Micro Devices, Inc.",
+        "price": 406.03,
+        "change_pct": -1.75188,
+        "market_cap": 672006275072,
+        "pe": 86.75855,
+        "forward_pe": 23.019857,
+        "52w_high": 658.52,
+        "52w_low": 188.22,
+        "volume": 51224876,
+        "avg_volume": 28707237,
+        "volume_ratio": 1.78
+      },
+      "INTC": {
+        "name": "Intel Corporation",
+        "price": 54.47,
+        "change_pct": -0.602186,
+        "market_cap": 289508032512,
+        "pe": null,
+        "forward_pe": 30.42235,
+        "52w_high": 142.35,
+        "52w_low": 34.95,
+        "volume": 128251607,
+        "avg_volume": 119964300,
+        "volume_ratio": 1.07
+      },
+      "NFLX": {
+        "name": "Netflix, Inc.",
+        "price": 59.41,
+        "change_pct": 0.917277,
+        "market_cap": 243956826112,
+        "pe": 17.17052,
+        "forward_pe": 15.7609625,
+        "52w_high": 109.73,
+        "52w_low": 56.56,
+        "volume": 45614479,
+        "avg_volume": 38711035,
+        "volume_ratio": 1.18
+      }
+    }
+  },
+  "cn": {
+    "fetched_at": "2026-11-27T06:56:56.653026",
+    "indices": {
+      "sh000001": {
+        "name": "上证指数",
+        "error": "stock_zh_index_daily 已在 1.20.44 更名为 index_zh_daily_sina，请改用 ak.index_zh_daily_sina；参数与返回的列也可能有调整，用 ak.interface_info(\"index_zh_daily_sina\") 查看。完整对照见 https://akshare.akfamily.xyz/changelog.html#changelog-rename"
+      },
+      "sz399001": {
+        "name": "深证成指",
+        "error": "stock_zh_index_daily 已在 1.20.44 更名为 index_zh_daily_sina，请改用 ak.index_zh_daily_sina；参数与返回的列也可能有调整，用 ak.interface_info(\"index_zh_daily_sina\") 查看。完整对照见 https://akshare.akfamily.xyz/changelog.html#changelog-rename"
+      },
+      "sz399006": {
+        "name": "创业板指",
+        "error": "stock_zh_index_daily 已在 1.20.44 更名为 index_zh_daily_sina，请改用 ak.index_zh_daily_sina；参数与返回的列也可能有调整，用 ak.interface_info(\"index_zh_daily_sina\") 查看。完整对照见 https://akshare.akfamily.xyz/changelog.html#changelog-rename"
+      }
+    }
+  },
+  "macro": {
+    "^VIX": {
+      "name": "VIX恐慌指数",
+      "value": 26.8,
+      "previous_close": 28.29
+    },
+    "^TNX": {
+      "name": "10年期美债收益率",
+      "value": 4.848,
+      "previous_close": 4.9040003
+    },
+    "DX-Y.NYB": {
+      "name": "美元指数",
+      "value": 103.733,
+      "previous_close": 103.665
+    }
+  }
+}
